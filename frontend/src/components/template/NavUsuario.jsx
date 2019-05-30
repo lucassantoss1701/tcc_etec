@@ -11,7 +11,7 @@ export default props =>
             <Link to="/cursosU">
                 <i className="fa fa-book"></i> Cursos
             </Link>
-            <Link to="/notices">
+            <Link to="/galeriaU">
                 <i className="fa fa-picture-o"></i> Galeria
             </Link>
             <Link to ="/contatoU">
@@ -26,7 +26,7 @@ export default props =>
             <a href="http://www.fatec.sp.gov.br/view/Default.aspx" rel="noopener noreferrer" target="_blank" >
                 <i className="fa fa-envelope"> </i> Institucional
             </a>
-            <Link to ="/nav">
+            <Link to ="/login">
                 <i className="fa fa-user"></i> Login
             </Link>
 

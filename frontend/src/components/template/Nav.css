@@ -5,13 +5,13 @@ aside.menu-area{
 .menu a {
     display: block;
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: white;
     padding: 15px;
     font-weight: 300;
 }
 
 .menu a:hover{
-    background: linear-gradient(135-deg,  rgba(255, 255, 255, 0.884) 0%, rgba(255, 255, 255, 0.884) 100%);
+    background: linear-gradient(135-deg,  rgba(0, 0, 0, 0.884) 0%, rgba(8, 8, 8, 0.884) 100%);
 }
 
 @media(max-width: 768px){

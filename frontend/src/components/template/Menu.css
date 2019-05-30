@@ -1,0 +1,52 @@
+aside.logo{
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside.logo img{
+    padding: 0px 15px;
+    width: 100%;
+}
+
+@media(max-width: 576px){
+    aside.logo img{
+        width: 350px;
+    }
+}
+
+aside.menu-area{
+    background-color: var(--bg-dark);
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    font-weight: 300;
+}
+
+.menu a:hover{
+    background: linear-gradient(135-deg,  rgba(255, 255, 255, 0.884) 0%, rgba(255, 255, 255, 0.884) 100%);
+}
+
+@media(max-width: 768px){
+    .menu{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .menu a {
+        display: inline;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    .menu{
+        height: 100%;
+        justify-content: space-around;
+    }
+}

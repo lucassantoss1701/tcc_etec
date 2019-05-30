@@ -1,0 +1,21 @@
+#conteiner {
+    text-align: center;
+    position: relative;
+
+}
+
+.caixa {  
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: inline-block;
+    margin: 8px;
+    text-align: left;
+}
+
+.fotos{
+    padding: 10px;
+    width: 50%;
+    border-radius: 20px;
+}
+

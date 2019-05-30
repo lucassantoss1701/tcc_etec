@@ -5,17 +5,23 @@ import './Nav.css';
 export default props =>
     <aside className="menu-area">
         <nav className="menu">
-            <Link to="">
+            <Link to="/home">
                 <i className="fa fa-home"></i> Home
             </Link>
             <Link to="/users">
                 <i className="fa fa-users"></i> Usuários
             </Link>
-            <Link to="/notices">
+            <Link to="/cursos">
+                <i className="fa fa-book"></i> Cursos
+            </Link>
+            <Link to="/noticias">
                 <i className="fa fa-newspaper-o"></i> Notícias
             </Link>
-            <Link to="/HomeU">
-                <i className="fa fa-laptop"></i> Site
+            <Link to="/galeria">
+                <i className="fa fa-picture-o"></i> Galeria
             </Link>
+            <a href="/">
+                <i className="fa fa-laptop"></i> Site
+            </a>
         </nav>
     </aside>
