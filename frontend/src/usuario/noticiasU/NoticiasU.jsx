@@ -5,7 +5,7 @@ import './divNoticias.css'
 import * as firebase from 'firebase'
 
 const now = new Date();
-
+var ru;
 
 export default class noticiasU extends Component {
   constructor() {
@@ -13,6 +13,7 @@ export default class noticiasU extends Component {
     this.state = {
       notices: [],
     };
+    ru  = this.state.notices.map((notice, index) => <li key={index}>{notice.title}</li>);
   }
   componentDidMount() {
     let ref = firebase.database().ref('/noticias');
@@ -21,9 +22,9 @@ export default class noticiasU extends Component {
       let thiz = this;
       Object.getOwnPropertyNames(state).forEach(function(val, idx, array) {
         console.log(state[val]);
-        thiz.state.notices.push(state[val])
+        thiz.state.notices.push(state[val]);
       });
-      console.log(this.state);
+      
     });
   }
 
@@ -31,13 +32,10 @@ export default class noticiasU extends Component {
 
   renderNotices() {
 
-      const Ru = this.state.notices.map(function(item){
-        return <li>{item}</li>;
-      })
-      console.log(this.item)
+      console.log(ru);
       return (
         
-        <ul>{Ru}</ul>,
+        <ul>{ru}</ul>,
         <div className="conteeiner">
           <div className="caixaaa">
             <div className="imagem">
