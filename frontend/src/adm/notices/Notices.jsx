@@ -16,7 +16,7 @@ export default class UnderCrud extends Component {
         super();
 
         this.state = {
-            value: undefined,
+            title: undefined,
             text: undefined
         };
 
@@ -26,38 +26,34 @@ export default class UnderCrud extends Component {
     }
 
     handleChange(event) {
-        this.setState({ value: event.target.value});
+        this.setState({ title: event.target.value});
         //separar isso
     }
     handleChangee(event) {
-        this.setState({ text: event.target.text  });
+        this.setState({ text: event.target.value});
         //separar isso
     }
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
-        this.titleRef = this.setState({
-            title: this.state.value,
-            
-        })
-        this.textRef = this.setState({
-            text: this.state.text
-        })
-        firebase.database().ref('noticias').child('id').push(this.state.value);
-        firebase.database().ref('noticias').child('id').push(this.state.text);
+        let notice = {
+            title: this.state.title,
+            text: this.state.text,
+        };
+        alert('A name was submitted: ' + JSON.stringify(notice));
+        firebase.database().ref('noticias').push(notice);
     }
 
     componentDidMount() {
-        const rootRef = firebase.database().ref().child('noticias');
-        const titleRef = rootRef.child('id');
+        // const rootRef = firebase.database().ref().child('noticias');
+        // const titleRef = rootRef.child('id');
 
-        titleRef.on('value', snap => {
-            this.setState({
-                title: snap.val(),
-                text: snap.val()
-            })
-        }
-        )
+        // titleRef.on('value', snap => {
+        //     this.setState({
+        //         title: snap.val(),
+        //         text: snap.val()
+        //     })
+        // }
+        // )
     }
 
 
@@ -70,7 +66,7 @@ export default class UnderCrud extends Component {
                             <label>Título</label>
                             <input type="text" className="form-control"
                                 name="name"
-                                value={this.state.value}
+                                value={this.state.title}
                                 onChange={this.handleChange}
                                 placeholder="Digite o título...">
                             </input>

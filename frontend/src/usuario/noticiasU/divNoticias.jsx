@@ -36,6 +36,7 @@ export default class DivNoticias extends Component {
         firebase.database().ref().child('title').push(this.state.value);
         event.preventDefault();
     }
+    
 
     componentDidMount(){
         const rootRef = firebase.database().ref().child('noticias');
