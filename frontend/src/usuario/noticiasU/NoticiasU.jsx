@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import Main from '../../components/template/Main'
-import etec1 from '../../assets/images/etec1.jpg'
 import './divNoticias.css'
 import * as firebase from 'firebase'
 
 const now = new Date();
-let ru;
+
 
 export default class noticiasU extends Component {
     constructor() {
@@ -13,7 +12,7 @@ export default class noticiasU extends Component {
         this.state = {
             notices: [],
         };
-        ru = this.state.notices.map((notice, index) => <li key={index}>{notice.title}</li>);
+        
     }
     componentDidMount() {
         let ref = firebase.database().ref('/noticias');
@@ -36,7 +35,7 @@ export default class noticiasU extends Component {
         return <div key={index} className="caixaaa">
             <div className="imagem">
                 <img className="fotosss"
-                    src={etec1}
+                    src={props.picture}
                     alt="First slide"
                 />
                 <div className="resto">

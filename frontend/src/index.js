@@ -16,6 +16,12 @@ const config = {
 };
 
 firebase.initializeApp(config);
+const storage = firebase.storage();
+
+export {
+    storage, firebase as default
+}
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
