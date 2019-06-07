@@ -15,7 +15,7 @@ export default class FotosGaleria extends Component {
 
     componentDidMount() {
         const { image } = this.state;
-        let ref = firebase.storage().ref(`images/${image.name}`);
+        const ref = firebase.storage().ref('images/');
         ref.on('file', snapshot => {
             const state = snapshot.val();
             let tempState = {

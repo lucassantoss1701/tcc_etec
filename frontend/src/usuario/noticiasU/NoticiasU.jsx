@@ -3,8 +3,6 @@ import Main from '../../components/template/Main'
 import './divNoticias.css'
 import * as firebase from 'firebase'
 
-const now = new Date();
-
 
 export default class noticiasU extends Component {
     constructor() {
@@ -40,7 +38,7 @@ export default class noticiasU extends Component {
                 />
                 <div className="resto">
                     <p>Título: {props.title}</p>
-                    <p> Data: {now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear()} </p>
+                    <p> Data: {props.date} </p>
                 </div>
                 <button type="button" id="btn" className="btn btn-primary"> Ver mais!</button>
             </div>
