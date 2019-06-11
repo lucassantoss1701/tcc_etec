@@ -40,7 +40,7 @@ export default class UnderCrud extends Component {
     handleChangeImage = e => {
         if (e.target.files[0]) {
             const image = e.target.files[0];
-            this.setState(() => ({ image }));
+            this.setState({image: image});
         }
     }
 
@@ -58,7 +58,7 @@ export default class UnderCrud extends Component {
             title: this.state.title,
             text: this.state.text,
             date: this.state.date,
-            image: this.state.url,
+            image: this.state.image.name,
         };
         alert('A name was submitted: ' + JSON.stringify(notice));
         firebase.database().ref('noticias').push(notice);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Main from '../../components/template/Main'
 import { storage } from '../../index'
+import * as firebase from 'firebase'
 
 export default class Galeria extends Component {
     constructor(props) {
@@ -28,6 +29,10 @@ export default class Galeria extends Component {
 
     handleUptade = () => {
         const { image } = this.state;
+        let fotos ={
+            image: this.state.image.name
+        }
+        firebase.database().ref('fotos').push(fotos);
 
         const uploadTask = storage.ref(`images/${image.name}`).put(image);
         uploadTask.on('state_changed',

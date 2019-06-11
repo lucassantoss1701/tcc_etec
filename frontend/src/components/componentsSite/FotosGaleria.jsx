@@ -1,53 +1,56 @@
-import React, { Component } from 'react';
-import * as firebase from 'firebase'
+import React, { Component } from 'react'
 import Main from '../../components/template/Main'
+import './FotosGaleria.css'
+import * as firebase from 'firebase'
+import { storage } from '../../index'
 
 
-export default class FotosGaleria extends Component {
-
+export default class noticiasU extends Component {
     constructor() {
         super();
         this.state = {
-            fotos: [],
-            image: undefined
-        }
+            notices: [],
+        };
     }
-
     componentDidMount() {
-        const { image } = this.state;
-        const ref = firebase.storage().ref('images/');
-        ref.on('file', snapshot => {
+        let ref = firebase.database().ref('/fotos');
+        let thiz = this;
+        ref.on('value', snapshot => {
             const state = snapshot.val();
             let tempState = {
-                fotos: []
+                notices: []
             };
             Object.getOwnPropertyNames(state).forEach(function (val, idx, array) {
-                tempState.fotos.push(state[val]);
+                console.log('image', state[val].image);
+                storage.ref('images/').child(state[val].image).getDownloadURL().then(function(url) {
+                   state[val].url = url
+                   console.log(url)
+                    tempState.notices.push(state[val]);
+                    thiz.setState(tempState);   
+                    thiz.forceUpdate();
+                 }).catch(function(error) {
+                    // Handle any errors
+                 });
             });
-            console.log('temp', tempState);
-            this.setState(tempState);
-            console.log('state', this.state);
-            this.forceUpdate();
         });
     }
 
-    renderFoto(props, index) {
+    renderNotice(props, index) {
         return (
-            <div key={index} id="caixa">
-                <div className="">
-                    <img className="fotos"
-                        alt="First slide"
-                        src={props.imagem.name}
-                    />
-                </div>
+            <div key={index} className="caixaaa">
+            <div className="imagem">
+                <img className="fotosss"
+                src={props.url}
+                alt="imagem"/>
             </div>
+        </div>
         )
     }
 
     renderFotos() {
         return (
             <div className="conteiner">
-                {this.state.fotos.map((foto, index) => this.renderFoto(foto, index))}
+               {this.state.notices.map((notice, index) => this.renderNotice(notice, index))}
             </div>
         )
     }

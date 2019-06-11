@@ -17,6 +17,9 @@ export default props =>
             <Link to="/noticias">
                 <i className="fa fa-newspaper-o"></i> Notícias
             </Link>
+            <Link to="/delnoticias">
+                <i className="fa fa-newspaper-o"></i> Excluir Notícias
+            </Link>
             <Link to="/galeria">
                 <i className="fa fa-picture-o"></i> Galeria
             </Link>
