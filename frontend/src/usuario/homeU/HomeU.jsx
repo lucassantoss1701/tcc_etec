@@ -8,7 +8,5 @@ export default props =>
         subtitle="Home">
         <div className='display-4'>Bem vindo!</div>
         <hr />
-        <p></p>
-
     <NoticiasU/>
     </Main>

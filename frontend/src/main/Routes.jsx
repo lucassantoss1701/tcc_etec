@@ -15,10 +15,12 @@ export default props =>
         <Route path='/contatoU' component={UserPage}></Route>
         <Route path='/galeriaU' component={UserPage}></Route>
         <Route path='/login' component={UserPage}></Route>
+        <Route path='/noticiaAberta' component={UserPage}></Route>
 
         <Route path='/home' component={AdmPage}></Route>
         <Route path='/users' component={AdmPage}></Route>
         <Route path='/noticias' component={AdmPage}></Route>
         <Route path='/galeria' component={AdmPage}></Route>
         <Route path='/cursos' component={AdmPage}></Route>
+        <Route path='/delnoticias' component={AdmPage}></Route>
     </Switch>

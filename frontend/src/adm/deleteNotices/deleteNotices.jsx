@@ -11,13 +11,14 @@ export default class noticiasU extends Component {
         super();
         this.state = {
             notices: [],
-            key: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(props, event) {
-        firebase.database().ref('noticias').remove(props.key);
+    handleSubmit(id) {
+       console.log(id)
+       let ref = firebase.database().ref('/noticias');
+       ref.child(id).remove();
     }
 
 
@@ -33,8 +34,7 @@ export default class noticiasU extends Component {
                 
             Object.getOwnPropertyNames(state).forEach(function (val, key, array) {
                 console.log('image', state[val].image);
-                state[val].id = key;
-                console.log(state[val].id)
+                state[val].id = val;
                 storage.ref('imagesNoticias/').child(state[val].image).getDownloadURL().then(function(url) {
                    state[val].url = url
                    console.log(url)
@@ -48,21 +48,21 @@ export default class noticiasU extends Component {
         });
     }
 
-    renderNotice(props, index) {
-
-        return <div key={index} className="caixaaa">
+    renderNotice(notice, index) {
+        console.log(index)
+        return(<div key={index} className="caixaaa">
             
             <div className="imagem">
                 <img className="fotosss"
-                src={props.url}
+                src={notice.url}
                 alt="imagem"/>
                 <div className="resto">
-                    <p>Título: {props.title}</p>
-                    <p> Data: {props.date} </p>
+                    <p>Título: {notice.title}</p>
+                    <p> Data: {notice.date} </p>
                 </div>
-                <button type="button" id="btn" className="btn btn-danger" onClick={e => this.handleSubmit()}> Excluir</button>
+                <button type="button" id="btn" className="btn btn-danger" onClick={e => this.handleSubmit(notice.id)} > Excluir</button>
             </div>
-        </div>
+        </div>)
     }
 
     renderNotices() {
